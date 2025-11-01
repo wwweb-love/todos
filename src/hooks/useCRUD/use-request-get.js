@@ -9,7 +9,10 @@ export const useGetRequest = (url, isRefresh) => {
 
         fetch(url)
             .then((rawLoad) => rawLoad.json())
-            .then((loaded) => setTodos(loaded))
+            .then((loaded) => {
+                setTodos(loaded)
+                console.log("CRUD", loaded)
+            })
             .finally(() => setLoading(false));
     }, [isRefresh]);
     return {

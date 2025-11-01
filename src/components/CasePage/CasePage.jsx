@@ -5,18 +5,22 @@ import { CasePageLayout } from "./CasePageLayout";
 import { useDeleteRequest } from "../../hooks/useCRUD/use-request-delete";
 import { NotFound } from "../NotFound/NotFound";
 import { useNavigate } from "react-router-dom";
+import { useGetRequest } from "../../hooks/useCRUD/use-request-get";
 
 export const CasePage = ({
-    todos,
-    loading,
+    // todos,
+    // loading,
     refresh,
-    indexCase,
+    // indexCase,
     showModal,
     setShowModal,
+    isRefresh
 }) => {
     const match = useMatch("/case/:id");
     const caseId = match.params.id || null;
     const navigate = useNavigate();
+
+    const { todos, loading } = useGetRequest(`http://localhost:3033/todos/${caseId}`, isRefresh)
 
     const removeItemTodos = () => {
         useDeleteRequest(`http://localhost:3033/todos/${caseId}`, refresh);
@@ -35,13 +39,12 @@ export const CasePage = ({
             </div>
         );
 
-    if (!todos[indexCase]) {
+    if (!todos) {
         return <NotFound />;
     }
 
     if (caseId && !loading) {
-        const { title, description, dataCreate, dataDeadline, completed } =
-            todos[indexCase];
+        const { title, description, dataCreate, dataDeadline, completed } = todos;
 
         const data = {
             title: title,

@@ -3,7 +3,7 @@ import { Case } from "../Case/Case";
 import { useMatch } from "react-router-dom";
 
 
-export const CaseList = ({ todos, loading, setIndexCase }) => {
+export const CaseList = ({ todos, loading }) => {
 
     const match = useMatch("/case/:id") || null;
 
@@ -17,7 +17,7 @@ export const CaseList = ({ todos, loading, setIndexCase }) => {
                         dataCreate={dataCreate}
                         id={id}
                         index={index}
-                        setIndexCase={setIndexCase}
+                        // setIndexCase={setIndexCase}
                     />
                 ))}
             </div>

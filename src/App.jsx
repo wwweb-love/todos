@@ -35,7 +35,7 @@ function App() {
                             refresh={refresh}
                             todos={todos}
                             loading={loading}
-                            setIndexCase={setIndexCase}
+                            // setIndexCase={setIndexCase}
                             showModal={showModal}
                             setShowModal={setShowModal}
                         />
@@ -45,12 +45,13 @@ function App() {
                     path="/case/:id"
                     element={
                         <CasePage
-                            todos={todos}
-                            loading={loading}
+                            // todos={todos}
+                            // loading={loading}
                             refresh={refresh}
-                            indexCase={indexCase}
+                            // indexCase={indexCase}
                             showModal={showModal}
                             setShowModal={setShowModal}
+                            isRefresh={isRefresh}
                         />
                     }
                 ></Route>

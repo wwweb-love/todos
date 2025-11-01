@@ -8,7 +8,7 @@ export const MainPage = ({
     refresh,
     todos,
     loading,
-    setIndexCase,
+    // setIndexCase,
     showModal,
     setShowModal,
 }) => {
@@ -24,7 +24,7 @@ export const MainPage = ({
             <CaseList
                 todos={todos}
                 loading={loading}
-                setIndexCase={setIndexCase}
+                // setIndexCase={setIndexCase}
             />
             <Outlet />
         </div>
